@@ -1,0 +1,16 @@
+# configuration for "master" branch
+-
+  branches:
+    only:
+      - master
+  configuration: Release
+  build:
+    project: .\TestCpp.sln
+# configuration for all other branches except "master"
+-
+  branches:
+    except:
+      - master
+  configuration: Test
+  build:
+    project: .\TestCpp.sln
