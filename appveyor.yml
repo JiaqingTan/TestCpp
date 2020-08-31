@@ -1,30 +1,16 @@
-# Notes:
-#   - Minimal appveyor.yml file is an empty file. All sections are optional.
-#   - Indent each level of configuration with 2 spaces. Do not use tabs!
-#   - All section names are case-sensitive.
-#   - Section names should be unique on each level.
-
-#---------------------------------#
-#      general configuration      #
-#---------------------------------#
-
-# version format
-version: 1.0.{build}
-
-#---------------------------------#
-#    environment configuration    #
-#---------------------------------#
-
-# Build worker image (VM template)
-image: Visual Studio 2019
-
-#---------------------------------#
-#       build configuration       #
-#---------------------------------#
-
 # configuration for "master" branch
-configuration: Debug
-build:
-  project: .\TestCpp.sln
-    
-# See reference file for more configurations: https://www.appveyor.com/docs/appveyor-yml/
+-
+  branches:
+    only:
+      - master
+  configuration: Release
+  build:
+    project: .\TestCpp.sln
+# configuration for all other branches except "master"
+-
+  branches:
+    except:
+      - master
+  configuration: Test
+  build:
+    project: .\TestCpp.sln
