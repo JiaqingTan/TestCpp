@@ -11,6 +11,6 @@
   branches:
     except:
       - master
-  configuration: Test
+  configuration: Debug
   build:
     project: .\TestCpp.sln
